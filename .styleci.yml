@@ -1,0 +1,10 @@
+preset: laravel
+risky: false
+finder:
+  exclude:
+    - "tests"
+  name:
+    - "*.php"
+
+disabled:
+  - single_class_element_per_statement
