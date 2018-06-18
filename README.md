@@ -17,14 +17,14 @@ $result = $timer->stop();
 
 print_r($result);
 
-[test] => Array
-(
-    [start] => 1529280196
-    [end] => 1529280198
-    [seconds] => 2
-    [minutes] => 0
-    [hours] => 0
-)
+// [test] => Array
+// (
+//     [start] => 1529280196
+//     [end] => 1529280198
+//     [seconds] => 2
+//     [minutes] => 0
+//     [hours] => 0
+// )
 
 
 // You can start multiples timers
