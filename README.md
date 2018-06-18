@@ -41,3 +41,15 @@ $result02 = $timer2->stop('timer02');
 echo $result02['seconds'] // 10
 
 ```
+
+## Installation
+
+You can install the package via composer:
+
+``` bash
+composer require edbizarro/timer
+```
+
+---
+
+[![forthebadge](http://forthebadge.com/images/badges/contains-cat-gifs.svg)](http://forthebadge.com)
