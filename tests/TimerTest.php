@@ -4,9 +4,8 @@ namespace Edbizarro\Timer\Tests;
 
 use Edbizarro\Timer\Timer;
 use Edbizarro\Timer\TimerMetrics;
-use PHPUnit\Framework\TestCase;
 
-class TimerTest extends TestCase
+class TimerTest extends \Orchestra\Testbench\TestCase
 {
     /** @test */
     public function it_can_create_with_key()
@@ -17,7 +16,7 @@ class TimerTest extends TestCase
 
         sleep(2);
 
-        $result = $timer->end($test);
+        $result = $timer->end('test');
 
         $this->assertArrayHasKey('test', $result);
         $this->assertEquals(2, $result['test']['seconds']);

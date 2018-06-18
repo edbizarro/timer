@@ -15,7 +15,17 @@ $timer = Timer::start('timer01');
 sleep(1);
 $result = $timer->stop();
 
-echo $result['seconds'] // 1
+print_r($result);
+
+[test] => Array
+(
+    [start] => 1529280196
+    [end] => 1529280198
+    [seconds] => 2
+    [minutes] => 0
+    [hours] => 0
+)
+
 
 // You can start multiples timers
 
@@ -28,6 +38,6 @@ echo $result['seconds'] // 1
 
 sleep(9);
 $result02 = Timer::stop('timer02');
-echo $result['seconds'] // 10
+echo $result02['seconds'] // 10
 
 ```
