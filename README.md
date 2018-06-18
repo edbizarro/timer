@@ -19,8 +19,8 @@ print_r($result);
 
 // [test] => Array
 // (
-//     [start] => 1529280196
-//     [end] => 1529280198
+//     [start] => (timestamp)
+//     [end] => (timestamp)
 //     [seconds] => 2
 //     [minutes] => 0
 //     [hours] => 0
