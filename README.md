@@ -17,14 +17,13 @@ $result = $timer->stop();
 
 print_r($result);
 
-// [test] => Array
-// (
+// [
 //     [start] => (timestamp)
 //     [end] => (timestamp)
 //     [seconds] => 2
 //     [minutes] => 0
 //     [hours] => 0
-// )
+// ]
 
 
 // You can start multiples timers
@@ -33,11 +32,11 @@ $timer1 = Timer::start('timer01');
 $timer2 = Timer::start('timer02');
 
 sleep(1);
-$result01 = $timer1->stop('timer01');
+$result01 = $timer1->stop();
 echo $result['seconds'] // 1
 
 sleep(9);
-$result02 = $timer2->stop('timer02');
+$result02 = $timer2->stop();
 echo $result02['seconds'] // 10
 
 ```

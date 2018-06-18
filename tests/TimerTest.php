@@ -16,10 +16,9 @@ class TimerTest extends \Orchestra\Testbench\TestCase
 
         sleep(2);
 
-        $result = $timer->end('test');
+        $result = $timer->stop();
 
-        $this->assertArrayHasKey('test', $result);
-        $this->assertEquals(2, $result['test']['seconds']);
+        $this->assertEquals(2, $result['seconds']);
     }
 
     /** @test */
@@ -30,16 +29,14 @@ class TimerTest extends \Orchestra\Testbench\TestCase
 
         sleep(2);
 
-        $result1 = $timer1->end('test');
+        $result1 = $timer1->stop();
 
         sleep(2);
 
-        $result2 = $timer2->end('test2');
+        $result2 = $timer2->stop();
 
-        $this->assertArrayHasKey('test', $result1);
-        $this->assertEquals(2, $result1['test']['seconds']);
+        $this->assertEquals(2, $result1['seconds']);
 
-        $this->assertArrayHasKey('test2', $result2);
-        $this->assertEquals(4, $result2['test2']['seconds']);
+        $this->assertEquals(4, $result2['seconds']);
     }
 }

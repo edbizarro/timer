@@ -47,30 +47,24 @@ class TimerMetrics
         return $this;
     }
 
-    public function end($key = null)
+    public function stop()
     {
         $time = Carbon::create()->getTimestamp();
 
-        if ($key === null) {
-            $key = $this->timerKey;
-        }
-
-        return $this->report($time, $key);
+        return $this->report($time);
     }
 
-    protected function report($time, $key): array
+    protected function report($time): array
     {
         $end = Carbon::createFromTimestamp($time);
-        $start = Carbon::createFromTimestamp($this->measurements[$key]);
+        $start = Carbon::createFromTimestamp($this->measurements[$this->timerKey]);
 
         return $this->results = [
-            $key => [
-                'start' => $start->timestamp,
-                'end' => $end->timestamp,
-                'seconds' => $end->diffInRealSeconds($start),
-                'minutes' => $end->diffInRealMinutes($start),
-                'hours' => $end->diffInRealHours($start),
-            ]
+            'start' => $start->timestamp,
+            'end' => $end->timestamp,
+            'seconds' => $end->diffInRealSeconds($start),
+            'minutes' => $end->diffInRealMinutes($start),
+            'hours' => $end->diffInRealHours($start),
         ];
     }
 }
