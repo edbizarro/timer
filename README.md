@@ -29,15 +29,15 @@ print_r($result);
 
 // You can start multiples timers
 
-Timer::start('timer01');
-Timer::start('timer02');
+$timer1 = Timer::start('timer01');
+$timer2 = Timer::start('timer02');
 
 sleep(1);
-$result01 = Timer::stop('timer01');
+$result01 = $timer1->stop('timer01');
 echo $result['seconds'] // 1
 
 sleep(9);
-$result02 = Timer::stop('timer02');
+$result02 = $timer2->stop('timer02');
 echo $result02['seconds'] // 10
 
 ```

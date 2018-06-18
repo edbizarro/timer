@@ -36,7 +36,7 @@ class TimerMetrics
      */
     public static function init()
     {
-        return new static();
+        return new self();
     }
 
     public function start($key)
