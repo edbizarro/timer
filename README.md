@@ -12,7 +12,7 @@ Here are a few examples on how you can use the package:
 use Edbizarro\Timer\Timer;
 
 $timer = Timer::start('timer01');
-sleep(1);
+sleep(2);
 $result = $timer->stop();
 
 print_r($result);
