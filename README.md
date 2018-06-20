@@ -26,7 +26,7 @@ print_r($result);
 //   "minutes" => 0                                                                                                                                                                                         
 //   "hours" => 0                                                                                                                                                                                           
 // ]    
-
+```
 
 ## Installation
 
