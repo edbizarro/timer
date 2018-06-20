@@ -9,8 +9,7 @@
         }
     },
     "require": {
-        "php": "^7.1.3",
-        "nesbot/carbon": "^1.30"
+        "php": "^7.1.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^7",
@@ -22,6 +21,6 @@
             "Edbizarro\\Timer\\Tests\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

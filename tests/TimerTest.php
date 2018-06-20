@@ -17,7 +17,7 @@ class TimerTest extends \Orchestra\Testbench\TestCase
         sleep(2);
 
         $result = $timer->stop();
-
+dd($result);
         $this->assertEquals(2, $result['seconds']);
     }
 

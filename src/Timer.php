@@ -2,8 +2,6 @@
 
 namespace Edbizarro\Timer;
 
-use Carbon\Carbon;
-
 class Timer
 {
     public static function __callStatic($method, $args)
@@ -14,8 +12,6 @@ class Timer
 
 class TimerMetrics
 {
-    protected $cacheDriver;
-
     /**
      * @var
      */
@@ -34,7 +30,7 @@ class TimerMetrics
     /**
      * @return TimerMetrics
      */
-    public static function init()
+    public static function init(): TimerMetrics
     {
         return new self();
     }
@@ -42,29 +38,34 @@ class TimerMetrics
     public function start($key)
     {
         $this->timerKey = $key;
-        $this->measurements[$key] = Carbon::create()->getTimestamp();
+        $this->measurements[$key] = microtime(true);
 
         return $this;
     }
 
-    public function stop()
+    public function stop(): array
     {
-        $time = Carbon::create()->getTimestamp();
-
-        return $this->report($time);
+        return $this->report();
     }
 
-    protected function report($time): array
+    protected function report(): array
     {
-        $end = Carbon::createFromTimestamp($time);
-        $start = Carbon::createFromTimestamp($this->measurements[$this->timerKey]);
+        $end = microtime(true);
+        $start = $this->measurements[$this->timerKey];
+
+        $duration = $end-$start;
+        $hours = (int) ($duration/60/60);
+        $minutes = (int) ($duration/60)-$hours*60;
+        $seconds = (int) $duration-$hours*60*60-$minutes*60;
 
         return $this->results = [
-            'start' => $start->timestamp,
-            'end' => $end->timestamp,
-            'seconds' => $end->diffInRealSeconds($start),
-            'minutes' => $end->diffInRealMinutes($start),
-            'hours' => $end->diffInRealHours($start),
+            'start' => $start,
+            'end' => $end,
+            'duration' => $duration,
+            'milliseconds' => $duration * 1000,
+            'seconds' => $seconds,
+            'minutes' => $minutes,
+            'hours' => $hours,
         ];
     }
 }

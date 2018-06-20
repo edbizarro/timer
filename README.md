@@ -17,29 +17,16 @@ $result = $timer->stop();
 
 print_r($result);
 
-// [
-//     [start] => (timestamp)
-//     [end] => (timestamp)
-//     [seconds] => 2
-//     [minutes] => 0
-//     [hours] => 0
-// ]
+// array:7 [                                                                                                                                                                                                
+//   "start" => 1529506852.084                                                                                                                                                                              
+//   "end" => 1529506854.0855                                                                                                                                                                               
+//   "duration" => 2.0015239715576                                                                                                                                                                          
+//   "milliseconds" => 2001.5239715576                                                                                                                                                                      
+//   "seconds" => 2                                                                                                                                                                                         
+//   "minutes" => 0                                                                                                                                                                                         
+//   "hours" => 0                                                                                                                                                                                           
+// ]    
 
-
-// You can start multiples timers
-
-$timer1 = Timer::start('timer01');
-$timer2 = Timer::start('timer02');
-
-sleep(1);
-$result01 = $timer1->stop();
-echo $result['seconds'] // 1
-
-sleep(9);
-$result02 = $timer2->stop();
-echo $result02['seconds'] // 10
-
-```
 
 ## Installation
 
