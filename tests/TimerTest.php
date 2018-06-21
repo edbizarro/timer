@@ -11,13 +11,10 @@ class TimerTest extends \Orchestra\Testbench\TestCase
     public function it_can_create_with_key()
     {
         $timer = Timer::start('test');
-
         $this->assertInstanceOf(TimerMetrics::class, $timer);
-
         sleep(2);
-
         $result = $timer->stop();
-dd($result);
+
         $this->assertEquals(2, $result['seconds']);
     }
 
@@ -26,7 +23,7 @@ dd($result);
     {
         $timer1 = Timer::start('test');
         $timer2 = Timer::start('test2');
-
+        
         sleep(2);
 
         $result1 = $timer1->stop();
